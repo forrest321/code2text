@@ -91,9 +91,9 @@ func processFiles(startDir string, config *appConfig) error {
 			fileCount++
 			buffer.WriteString(fmt.Sprintf("File: %s\n", path))
 			buffer.WriteString(fmt.Sprintf("Lines: %d\n", lines))
-			buffer.WriteString("-----BEGIN FILE-----\n")
+			buffer.WriteString(fmt.Sprintf("-----BEGIN %s-----\n", path))
 			buffer.Write(data)
-			buffer.WriteString("\n-----END FILE-----\n\n")
+			buffer.WriteString(fmt.Sprintf("\n-----END %s-----\n\n", path))
 		}
 		return nil
 	})
