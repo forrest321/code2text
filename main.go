@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"io/fs"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -37,7 +36,7 @@ and consolidate them into a single text document for analysis.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			start := time.Now()
 			if err := processFiles(".", &config); err != nil {
-				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+				_, _ = fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 				os.Exit(1)
 			}
 			duration := time.Since(start)
@@ -82,7 +81,7 @@ func processFiles(startDir string, config *appConfig) error {
 		}
 		ext := filepath.Ext(path)
 		if contains(config.IncludeExtensions, ext) && !contains(config.ExcludeExtensions, ext) {
-			data, err := ioutil.ReadFile(path)
+			data, err := os.ReadFile(path)
 			if err != nil {
 				return err
 			}
@@ -103,7 +102,7 @@ func processFiles(startDir string, config *appConfig) error {
 		return err
 	}
 
-	if err := ioutil.WriteFile(config.OutputFile, buffer.Bytes(), 0644); err != nil {
+	if err := os.WriteFile(config.OutputFile, buffer.Bytes(), 0644); err != nil {
 		return err
 	}
 
@@ -124,7 +123,7 @@ func generateDirStructure(startDir string, ignoreDirs []string) (string, error) 
 
 func customTree(dir, prefix string, ignoreDirs []string) (string, error) {
 	var result strings.Builder
-	files, err := ioutil.ReadDir(dir)
+	files, err := os.ReadDir(dir)
 	if err != nil {
 		return "", err
 	}
