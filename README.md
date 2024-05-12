@@ -37,6 +37,11 @@
 
 Run the tool using the following syntax:
 
+If using code2text installed in path:
+```bash
+code2text [flags]
+```
+If using locally created code2text binary in the same folder:
 ```bash
 ./code2text [flags]
 ```
