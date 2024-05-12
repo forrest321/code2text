@@ -48,6 +48,14 @@ Run the tool using the following syntax:
 - `-g, --ignore <directories>`: Specify directories to ignore (default ignores `.git`, `.idea`).
 
 ### Example
+
+
+If using code2text installed in path:
+```bash
+code2text --output result.txt --include .go --include .js --exclude .test --ignore .git
+```
+
+If using locally created code2text binary in the same folder:
 ```bash
 ./code2text --output result.txt --include .go --include .js --exclude .test --ignore .git
 ```
