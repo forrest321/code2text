@@ -6,6 +6,9 @@
 
 ## Installation
 
+### Download Executable
+Find the compiled executable for your OS and arch on the [releases page](https://github.com/forrest321/code2text/releases)
+
 ### Prerequisites
 - Go (1.15 or later)
 
