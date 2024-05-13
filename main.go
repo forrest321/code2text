@@ -23,7 +23,7 @@ type appConfig struct {
 func main() {
 	config := appConfig{
 		IncludeExtensions: []string{".go", ".js", ".jsx", ".ts", ".tsx", ".py", ".rb", ".php", ".swift", ".c", ".cpp", ".h", ".hpp", ".java", ".rs", ".kt", ".scala", ".m"},
-		ExcludeExtensions: []string{},
+		ExcludeExtensions: []string{".log", ".tmp", ".bak", ".o", ".obj", ".class", ".exe", ".dll", ".so", ".a", ".lib", ".pyc", ".jar"},
 		IgnoreDirs:        []string{".git", ".idea", ".vscode", "node_modules", "vendor", "build", "dist", "bin", "obj"},
 		OutputFile:        "output.txt",
 	}

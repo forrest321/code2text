@@ -46,6 +46,14 @@ If using locally created code2text binary in the same folder:
 ./code2text [flags]
 ```
 
+## Defaults
+```go
+IncludeExtensions: []string{".go", ".js", ".jsx", ".ts", ".tsx", ".py", ".rb", ".php", ".swift", ".c", ".cpp", ".h", ".hpp", ".java", ".rs", ".kt", ".scala", ".m"},
+ExcludeExtensions: []string{".log", ".tmp", ".bak", ".o", ".obj", ".class", ".exe", ".dll", ".so", ".a", ".lib", ".pyc", ".jar"},
+IgnoreDirs:        []string{".git", ".idea", ".vscode", "node_modules", "vendor", "build", "dist", "bin", "obj"},
+OutputFile:        "output.txt"
+```
+
 ### Flags
 - `-o, --output <file>`: Specify the output file name (default is `output.txt`).
 - `-i, --include <extensions>`: Specify file extensions to include (default includes `.go`, `.js`).
